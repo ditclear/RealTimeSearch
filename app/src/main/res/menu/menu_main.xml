@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_task"
+          android:actionViewClass="android.widget.ImageButton"
+          android:title="@string/task"/>
+    <item android:id="@+id/menu_executor"
+          android:actionViewClass="android.widget.ImageButton"
+          android:title="@string/executor"/>
+    <item android:id="@+id/menu_rxjava"
+          android:actionViewClass="android.widget.ImageButton"
+          android:title="@string/rxjava"/>
+</menu>

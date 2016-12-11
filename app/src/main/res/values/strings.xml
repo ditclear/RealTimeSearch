@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RealTimeSearch</string>
+    <string name="task">AsyncTask</string>
+    <string name="executor">Executor</string>
+    <string name="rxjava">RxJava</string>
+
+    <string name="toast_format">当前模式：%1$s\n搜索内容：%2$s</string>
+</resources>
