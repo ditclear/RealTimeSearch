@@ -1,3 +1,8 @@
+
+#RealTimeSearch
+
+android实现延迟搜索（简书地址：http://www.jianshu.com/p/13774ed60f22）
+
 #### 场景
 
 在进行搜索功能开发(特别是需要从网络或者本地加载)的时候，为了给用户以更好体验：
@@ -6,10 +11,14 @@
 
 **设置一个延迟时间，过滤掉变化过快的字符**
 
+![screenshot.gif](https://github.com/ditclear/RealTimeSearch/blob/master/screenshot.gif?raw=true)
+
 而实现的方式，我总结了有以下三种：
 * Handler+Thread
 * Executor+Future
 * RxJava
+
+apk地址：[Demo](https://github.com/ditclear/RealTimeSearch/tree/master/apk)
 
 #### 实现（延迟500ms搜索）
 
