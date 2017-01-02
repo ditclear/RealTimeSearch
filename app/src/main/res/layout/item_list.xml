@@ -6,6 +6,7 @@
           android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
           android:paddingLeft="16dp"
           android:gravity="center_vertical"
+          android:background="?android:selectableItemBackground"
           android:text="">
 
 </TextView>
