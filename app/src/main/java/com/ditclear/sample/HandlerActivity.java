@@ -16,12 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class HandlerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class HandlerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     Random r = new Random();
     private Toolbar mToolbar;
     private SearchView mSearchView;
     private RecyclerView mRecyclerView;
-    private RecyclerAdapter mAdapter,mRecentAdapter;
+    private RecyclerAdapter mAdapter, mRecentAdapter;
+    private Handler handler = new Handler();
+    private DelayQueryRunnable delayQueryTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,14 +69,14 @@ public class HandlerActivity extends AppCompatActivity implements SearchView.OnQ
 
         mRecyclerView.setAdapter(mRecentAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
     }
 
     private List<String> fakeData(String query) {
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            data.add(query +  i);
+            data.add(query + i);
 
         }
         return data;
@@ -81,16 +84,18 @@ public class HandlerActivity extends AppCompatActivity implements SearchView.OnQ
 
     private void queryMatch(String query) {
         Toast.makeText(this, String.format(getString(R.string.toast_format)
-                ,"handler+thread",query), Toast.LENGTH_SHORT).show();
+                , "handler+thread", query), Toast.LENGTH_SHORT).show();
         //模拟网络请求
         mAdapter.setList(fakeData(query));
         mRecyclerView.setAdapter(mAdapter);
 
     }
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
+
     @Override
     public boolean onQueryTextChange(String newText) {
         if (!TextUtils.isEmpty(newText)) {
@@ -109,11 +114,10 @@ public class HandlerActivity extends AppCompatActivity implements SearchView.OnQ
         handler.postDelayed(delayQueryTask, 500);
     }
 
-    private Handler handler = new Handler();
-    private DelayQueryRunnable delayQueryTask;
     private class DelayQueryRunnable implements Runnable {
-        private boolean canceled = false;
         String mText;
+        private boolean canceled = false;
+
         public DelayQueryRunnable(String text) {
             this.mText = text;
         }
