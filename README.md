@@ -1,7 +1,7 @@
 
 #RealTimeSearch
 
-android实现延迟搜索（简书地址：http://www.jianshu.com/p/13774ed60f22）
+android实现延迟搜索（简书地址：http://www.jianshu.com/p/13774ed60f22 ）
 
 #### 场景
 
